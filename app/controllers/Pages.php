@@ -114,6 +114,9 @@ class Pages
 		$f3->set("unread_count", $result[0]["unread"]);
 
 		$result = $db->exec("SELECT feeds.name, feed_id, feeds.icon, 0 AS unread FROM subscriptions JOIN feeds ON feed_id = feeds.id WHERE user_id = :user_id AND (folder IS NULL OR folder = '') ORDER BY feeds.name ASC;", [":user_id" => $f3->get("SESSION.user")["id"]]);
+		for($i = 0; $i < count($result); $i++) {
+			$result[$i]["icon"] = base64_encode($result[$i]["icon"]);
+		}
 		$f3->set("null_feeds", $result);
 
 		$result = $db->exec("SELECT DISTINCT folder FROM subscriptions WHERE user_id = :user_id AND folder IS NOT NULL AND folder <> '' ORDER BY folder ASC;", [":user_id" => $f3->get("SESSION.user")["id"]]);
@@ -122,6 +125,9 @@ class Pages
 		for($i = 0; $i < count($folders); $i++) {
 			// FIXME: Unread 0.
 			$result = $db->exec("SELECT feeds.name, feed_id, feeds.icon, 0 AS unread FROM subscriptions JOIN feeds ON feed_id = feeds.id WHERE user_id = :user_id AND folder = :folder ORDER BY feeds.name ASC;", [":user_id" => $f3->get("SESSION.user")["id"], ":folder" => $folders[$i]["folder"]]);
+			for($j = 0; $j < count($result); $j++) {
+				$result[$j]["icon"] = base64_encode($result[$j]["icon"]);
+			}
 			$folders[$i]["subscriptions"] = $result;
 		}
 
@@ -140,6 +146,9 @@ class Pages
 		$f3->set("unread_count", $result[0]["unread"]);
 
 		$result = $db->exec("SELECT feeds.name, feed_id, feeds.icon, 0 AS unread FROM subscriptions JOIN feeds ON feed_id = feeds.id WHERE user_id = :user_id AND (folder IS NULL OR folder = '') ORDER BY feeds.name ASC;", [":user_id" => $f3->get("SESSION.user")["id"]]);
+		for($i = 0; $i < count($result); $i++) {
+			$result[$i]["icon"] = base64_encode($result[$i]["icon"]);
+		}
 		$f3->set("null_feeds", $result);
 
 		$result = $db->exec("SELECT DISTINCT folder FROM subscriptions WHERE user_id = :user_id AND folder IS NOT NULL AND folder <> '' ORDER BY folder ASC;", [":user_id" => $f3->get("SESSION.user")["id"]]);
@@ -148,6 +157,9 @@ class Pages
 		for($i = 0; $i < count($folders); $i++) {
 			// FIXME: Unread 0.
 			$result = $db->exec("SELECT feeds.name, feed_id, feeds.icon, 0 AS unread FROM subscriptions JOIN feeds ON feed_id = feeds.id WHERE user_id = :user_id AND folder = :folder ORDER BY feeds.name ASC;", [":user_id" => $f3->get("SESSION.user")["id"], ":folder" => $folders[$i]["folder"]]);
+			for($j = 0; $j < count($result); $j++) {
+				$result[$j]["icon"] = base64_encode($result[$j]["icon"]);
+			}
 			$folders[$i]["subscriptions"] = $result;
 		}
 
