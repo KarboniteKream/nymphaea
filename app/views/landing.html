@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-    	<meta charset="{{ @ENCODING }}" />
-        <title>nymphaea</title>
-        <link rel="icon" type="image/png" href="/images/favicon.png" />
-		<link rel="stylesheet" href="/css/main.css" type="text/css" />
+	<head>
+		<meta charset="{{ @ENCODING }}" />
+		<title>nymphaea</title>
+		<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
 		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5sortable/0.3.1/html.sortable.js"></script>
-		<script type="text/javascript" src="/js/feed.js"></script>
-    </head>
-    <body id="index">
-        <header>
+		<script type="text/javascript" src="/assets/js/feed.js"></script>
+	</head>
+	<body id="index">
+		<header>
 			<h1><a href="/"><!--<span class="renge">蓮花</span> -->nymphaea</a><span class="version"> alpha</span></h1>
 			<nav>
 				<ul>
@@ -20,14 +20,14 @@
 				</ul>
 			</nav>
 		</header>
-        <main>
-            <div id="banner">the next-generation <span class="rss">RSS</span> reader</div>
-		    <div id="landing">
-			    <div>
-				    <div class="header">
-					    <span id="fullscreen" class="button-primary">v</span>
-					    <h2>Featured articles</h2>
-				    </div>
+		<main>
+			<div id="banner">the next-generation <span class="rss">RSS</span> reader</div>
+			<div id="landing">
+				<div>
+					<div class="header">
+						<span id="fullscreen" class="button-primary">v</span>
+						<h2>Featured articles</h2>
+					</div>
 					<div id="featured">
 						<repeat group="{{ @articles }}" value="{{ @article }}">
 							<article>
@@ -47,10 +47,10 @@
 							</article>
 						</repeat>
 					</div>
-			    </div>
-		    </div>
+				</div>
+			</div>
 		</main>
-        <div id="overlay" onclick="hideOverlay()"></div>
+		<div id="overlay" onclick="hideOverlay()"></div>
 		<div id="sign-in" class="popup">
 			<div class="header">
 				<span class="button-secondary" onclick="hideOverlay()">×</span>
@@ -90,5 +90,5 @@
 				</fieldset>
 			</form>
 		</div>
-    </body>
+	</body>
 </html>

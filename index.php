@@ -1,9 +1,10 @@
 <?php
 
-$f3 = require("../framework/base.php");
-$f3->config("../config.ini");
+$f3 = require("lib/base.php");
 
-$db = new DB\SQL("sqlite:../database/nymphaea.sqlite");
+$f3->config("app/config/globals.ini");
+
+$db = new DB\SQL("sqlite:app/database/nymphaea.sqlite");
 $db->exec("PRAGMA foreign_keys = ON;");
 
 $f3->route("GET @index: /", function($f3) use($db) {
@@ -64,7 +65,7 @@ $f3->route("GET @home: /home", function($f3) use($db) {
 	for($i = 0; $i < count($result); $i++) {
 		$result[$i]["icon"] = base64_encode($result[$i]["icon"]);
 	}
-	$f3->set("nullSubscriptions", $result);
+	$f3->set("null_feeds", $result);
 
 	$result = $db->exec("SELECT DISTINCT folder FROM subscriptions WHERE user_id = :user_id AND folder IS NOT NULL AND folder <> '' ORDER BY folder ASC;", [":user_id" => $f3->get("SESSION.user")["id"]]);
 	$folders = $result;
@@ -99,7 +100,7 @@ $f3->route("GET @feed: /home/@feed_id", function($f3, $params) use($db) {
 	for($i = 0; $i < count($result); $i++) {
 		$result[$i]["icon"] = base64_encode($result[$i]["icon"]);
 	}
-	$f3->set("nullSubscriptions", $result);
+	$f3->set("null_feeds", $result);
 
 	$result = $db->exec("SELECT DISTINCT folder FROM subscriptions WHERE user_id = :user_id AND folder IS NOT NULL AND folder <> '' ORDER BY folder ASC;", [":user_id" => $f3->get("SESSION.user")["id"]]);
 	$folders = $result;
@@ -149,7 +150,7 @@ $f3->route("GET /settings", function($f3) use($db) {
 	$f3->set("unread_count", $result[0]["unread"]);
 
 	$result = $db->exec("SELECT feeds.name, feed_id, feeds.icon, 0 AS unread FROM subscriptions JOIN feeds ON feed_id = feeds.id WHERE user_id = :user_id AND (folder IS NULL OR folder = '') ORDER BY feeds.name ASC;", [":user_id" => $f3->get("SESSION.user")["id"]]);
-	$f3->set("nullSubscriptions", $result);
+	$f3->set("null_feeds", $result);
 
 	$result = $db->exec("SELECT DISTINCT folder FROM subscriptions WHERE user_id = :user_id AND folder IS NOT NULL AND folder <> '' ORDER BY folder ASC;", [":user_id" => $f3->get("SESSION.user")["id"]]);
 	$folders = $result;
@@ -176,7 +177,7 @@ $f3->route("GET /help", function($f3) use($db) {
 	$f3->set("unread_count", $result[0]["unread"]);
 
 	$result = $db->exec("SELECT feeds.name, feed_id, feeds.icon, 0 AS unread FROM subscriptions JOIN feeds ON feed_id = feeds.id WHERE user_id = :user_id AND (folder IS NULL OR folder = '') ORDER BY feeds.name ASC;", [":user_id" => $f3->get("SESSION.user")["id"]]);
-	$f3->set("nullSubscriptions", $result);
+	$f3->set("null_feeds", $result);
 
 	$result = $db->exec("SELECT DISTINCT folder FROM subscriptions WHERE user_id = :user_id AND folder IS NOT NULL AND folder <> '' ORDER BY folder ASC;", [":user_id" => $f3->get("SESSION.user")["id"]]);
 	$folders = $result;
