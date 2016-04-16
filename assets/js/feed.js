@@ -1,8 +1,5 @@
 $(document).ready(function() {
-	$("#overlay").click(function() {
-		$("#overlay").fadeOut("fast");
-		$(".popup").fadeOut("fast");
-	});
+	$("#overlay").click(hideOverlay);
 
 	$("#overlay").hide();
 	$("#add-subscription").hide();
@@ -126,4 +123,9 @@ $(document).ready(function() {
 function validateEmail(email) {
     var regex = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
 	return (regex.test(email) == true);
+}
+
+function hideOverlay() {
+	$("#overlay").fadeOut("fast");
+	$(".popup").fadeOut("fast");
 }
