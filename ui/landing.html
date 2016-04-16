@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    	<meta charset="{{ @ENCODING }}" />
+        <title>nymphaea</title>
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+		<link rel="stylesheet" href="/css/main.css" type="text/css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5sortable/0.3.1/html.sortable.js"></script>
+		<script type="text/javascript" src="/js/feed.js"></script>
+    </head>
+    <body id="index">
+        <header>
+			<h1><a href="/"><!--<span class="renge">蓮花</span> -->nymphaea</a><span class="version"> alpha</span></h1>
+			<nav>
+				<ul>
+					<li><span class="button-secondary open-popup" target-popup="#register">Register</span></li>
+					<li><span class="button-primary open-popup" target-popup="#sign-in">Sign in</span></li>
+				</ul>
+			</nav>
+		</header>
+        <main>
+            <div id="banner">the next-generation <span class="rss">RSS</span> reader</div>
+		    <div id="landing">
+			    <div>
+				    <div class="header">
+					    <span id="fullscreen" class="button-primary">v</span>
+					    <h2>Featured articles</h2>
+				    </div>
+					<div id="featured">
+						<repeat group="{{ @articles }}" value="{{ @article }}">
+							<article>
+								<check if="{{ @article.date != null }}">
+									<div class="date">{{ strftime("%Y-%m-%d", strtotime(@article.date)) }}</div>
+								</check>
+								<h2><a href="{{ @article.url }}" target="_blank">{{ @article.title }}</a></h2>
+								<check if="{{ @article.author != null }}">
+									<div class="author">by <b>{{ @article.author }}</b></div>
+								</check>
+								<div class="content">
+									<p>{{ @article.content | raw }}</p>
+								</div>
+								<div class="action-bar">
+									<a>Like</a>
+								</div>
+							</article>
+						</repeat>
+					</div>
+			    </div>
+		    </div>
+		</main>
+        <div id="overlay" onclick="hideOverlay()"></div>
+		<div id="sign-in" class="popup">
+			<div class="header">
+				<span class="button-secondary" onclick="hideOverlay()">×</span>
+				<h3>Sign in</h3>
+			</div>
+			<form action="/sign-in" method="POST">
+				<fieldset>
+					<input type="email" name="email" placeholder="e-mail" tabindex="1" />
+					<br />
+					<input type="password" name="password" placeholder="password" tabindex="2" />
+					<br />
+					<input type="submit" value="Sign in" tabindex="4" />
+					<label for="rememberMe">
+						<input type="checkbox" id="rememberMe" tabindex="3" />
+						Remember me
+					</label>
+				</fieldset>
+			</form>
+		</div>
+		<div id="register" class="popup">
+			<div class="header">
+				<span class="button-secondary" onclick="hideOverlay()">×</span>
+				<h3>Register</h3>
+			</div>
+			<form action="/register" method="POST">
+				<fieldset>
+					<input type="text" name="real_name" placeholder="real name" tabindex="1" />
+					<br />
+					<input type="email" name="email" placeholder="e-mail" tabindex="2" />
+					<br />
+					<br />
+					<input type="password" name="password" placeholder="password" tabindex="3" />
+					<br />
+					<input type="password" name="password_confirmation" placeholder="confirm password" tabindex="4" />
+					<br />
+					<input type="submit" value="Register" tabindex="5" />
+				</fieldset>
+			</form>
+		</div>
+    </body>
+</html>

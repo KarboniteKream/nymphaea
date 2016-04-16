@@ -1,0 +1,1082 @@
+@import url("//fonts.googleapis.com/css?family=Raleway");
+/* @import url("//fonts.googleapis.com/earlyaccess/notosansjp.css"); */
+
+@font-face
+{
+	font-family: "ModernPictogramsNormal";
+	src: url("/fonts/modernpics-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+*
+{
+	font-family: "Raleway", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body
+{
+	margin: 0px;
+}
+
+a
+{
+	color: #000000;
+	text-decoration: none;
+    cursor: pointer;
+}
+
+/*
+.renge
+{
+	font-family: "Noto Sans JP", "Raleway", "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 400;
+	line-height: 0em;
+}
+*/
+
+.active
+{
+	color: #428BCA;
+	font-weight: bold;
+}
+
+.rss
+{
+	color: #FF6600;
+}
+
+[class^="button"]
+{
+	border-radius: 5px;
+	font-size: 16px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.button-primary
+{
+	color: #FFFFFF;
+	background-color: #428BCA;
+	border: 1px solid #3374AC;
+}
+
+.button-primary:hover
+{
+	background-color: #3374AC;
+}
+
+.button-secondary
+{
+	color: #000000;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+}
+
+.button-secondary:hover
+{
+	background-color: #CCCCCC;
+}
+
+button[type="submit"]
+{
+	cursor: pointer;
+}
+
+header
+{
+	position: relative;
+	z-index: 1;
+	height: 49px;
+	padding-left: 20px;
+	padding-right: 15px;
+	background-color: #F1F1F1;
+	border-bottom: 1px solid #AAAAAA;
+}
+
+header h1
+{
+	float: left;
+	margin: 6px 0px;
+}
+
+header h1 a
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+nav
+{
+	float: right;
+}
+
+nav ul
+{
+	margin: 14px 0px;
+}
+
+/* Add button class. */
+body#index nav ul
+{
+	margin: 15px 0px;
+}
+
+body#index nav li
+{
+	padding: 0px 4px;
+}
+
+body nav li
+{
+	padding: 0px 10px;
+}
+
+nav li
+{
+	display: inline;
+}
+
+nav a
+{
+	padding: 10px 0px;
+	font-size: 18px;
+	color: #000000;
+	text-decoration: none;
+}
+
+nav span
+{
+	float: none !important;
+	padding: 6px 10px !important;
+}
+
+span[class^="button"]
+{
+	float: right;
+	padding: 5px 7px;
+	margin: 3px;
+	cursor: pointer;
+}
+
+
+nav a:not([class^="button"]):hover
+{
+	color: #609AC9;
+}
+
+.version
+{
+	font-size: 15px;
+	font-weight: normal;
+	color: #808080;
+}
+
+p
+{
+	text-align: justify;
+}
+
+#main
+{
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	padding: 10px;
+}
+
+#sidebar
+{
+	float: left;
+	position: relative;
+	width: 230px;
+	height: 100%;
+}
+
+#new-subscription
+{
+	float: none;
+	height: 19px;
+	padding: 8px 10px;
+	margin: 0px;
+	line-height: 20px;
+}
+
+#add-subscription
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 35px;
+	background-color: #F1F1F1;
+	border: 1px solid #CCCCCC;
+	border-radius: 5px;
+}
+
+#add-subscription input:not([type="submit"])
+{
+	width: 155px;
+	margin-top: 5px;
+	margin-left: 3px;
+	padding: 3px;
+	padding-left: 6px;
+}
+
+#add-subscription input[type="submit"]
+{
+	width: 47px;
+	height: 28px;
+	margin-top: 4px;
+	margin-right: 1px;
+	padding: 5px 9px;
+	font-size: 14px;
+	line-height: 5px;
+}
+
+#sidebar-content
+{
+	position: absolute;
+	top: 41px;
+	left: 0px;
+	right: 0px;
+	bottom: -2px;
+	background-color: #F4F4F4;
+	border: 1px solid #AAAAAA;
+	border-radius: 6px;
+}
+
+#sidebar-content ul
+{
+	list-style: none;
+}
+
+#menu
+{
+	border-bottom: 1px solid #AAAAAA;
+}
+
+#menu ul
+{
+	margin: 15px 0px;
+	padding-left: 15px;
+}
+
+#menu li
+{
+	height: 22px;
+	margin-bottom: 5px;
+}
+
+#subscriptions
+{
+	position: absolute;
+	top: 134px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	padding-top: 20px;
+	padding-left: 15px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#subscriptions ul
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+#subscriptions li:not(.folder)
+{
+	height: 26px;
+}
+
+#subscriptions li:not(.folder) a
+{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#subscriptions > ul:not(.sortable) li:not(.folder) a
+{
+    max-width: 140px;
+}
+
+#subscriptions > ul.sortable a
+{
+	max-width: 160px;
+}
+
+.folder
+{
+	position: relative;
+	margin-top: 6px;
+}
+
+.folder input
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin-left: 2px;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.folder label
+{
+	display: block;
+	margin-bottom: 7px;
+	padding-left: 25px;
+	background: url("/images/arrow-down.png") 0px 1px no-repeat;
+	cursor: pointer;
+}
+
+.folder input:checked + label
+{
+	background: url("/images/arrow-right.png") 0px 1px no-repeat;
+}
+
+.folder input:checked + label + ul > li
+{
+	display: none;
+}
+
+#subscriptions li ul
+{
+	margin-left: 20px;
+}
+
+#subscriptions a,
+#menu a
+{
+	display: inline-block;
+	padding-left: 22px;
+	vertical-align: top;
+	background-repeat: no-repeat;
+	background-size: 16px;
+}
+
+#sidebar-content a:hover
+{
+	color: #609AC9;
+}
+
+#home
+{
+	background-image: url("/images/home.png");
+}
+
+#unread
+{
+	background-image: url("/images/unread.png");
+}
+
+#liked
+{
+	background-image: url("/images/liked.png");
+}
+
+#all
+{
+	background-image: url("/images/all.png");
+}
+
+.badge
+{
+	vertical-align: super;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#content
+{
+	position: relative;
+	height: 100%;
+	margin-left: 240px;
+	font-size: 15px;
+	border: 1px solid #AAAAAA;
+	border-radius: 6px;
+	overflow-y: auto;
+}
+
+#content .header,
+#landing .header
+{
+	width: 100%;
+	height: 37px;
+	background-color: #F1F1F1;
+	border-bottom: 1px solid #AAAAAA;
+}
+
+#content [class^="header"] h2,
+#landing [class^="header"] h2
+{
+	margin: 0px;
+	padding: 6px 8px;
+}
+
+#content [class^="header"] a,
+#landing [class^="header"] a
+{
+	float: right;
+	margin: 3px;
+	padding: 5px 7px;
+}
+
+#content [class^="header-secondary"]
+{
+	float: right;
+	width: 50%;
+	height: 100%;
+	border-left: 1px solid #AAAAAA;
+}
+
+#content .header-secondary-30
+{
+	width: 30%;
+}
+
+#reader,
+#featured:not(.home-right)
+{
+	position: absolute;
+	top: 38px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow-y: auto;
+}
+
+article
+{
+	margin: 10px 8px 16px;
+	padding: 6px 6px 0px 6px;
+	border: 1px solid #CCCCCC;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+article .content pre,
+article .content blockquote
+{
+	margin: 0px 10px;
+	padding: 10px;
+	background-color: #F4F4F4;
+	border: 1px solid #CCCCCC;
+	border-left: 5px solid #609AC9;
+	overflow-x: auto;
+}
+
+article .content code,
+article .content blockquote
+{
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	background-color: #F4F4F4;
+}
+
+article .content p code,
+article .content strong code
+{
+	padding: 1px 3px;
+	font-weight: normal;
+	border: 1px solid #CCCCCC;
+}
+
+article .content a
+{
+	color: #3374AC;
+}
+
+article .content *
+{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+article .date
+{
+	float: right;
+}
+
+article > h2
+{
+	margin: 0px 2px 2px;
+	color: #000000;
+}
+
+article > h2 a
+{
+	color: #000000;
+}
+
+.author
+{
+	display: block;
+	margin-left: 8px;
+	margin-bottom: 15px;
+	font-size: 13px;
+}
+
+article div,
+article img
+{
+	max-width: 100%;
+	height: auto;
+}
+
+article iframe
+{
+	max-width: 100%;
+}
+
+.action-bar
+{
+	width: 100%;
+	margin-left: -6px;
+	margin-bottom: 0px;
+	padding: 0px 6px;
+	background-color: #F1F1F1;
+	border-top: 1px solid #CCCCCC;
+}
+
+article.unread
+{
+	border: 1px solid #3374AC;
+}
+
+article.unread .action-bar
+{
+	background-color: #428BCA;
+	border-top: 1px solid #3374AC;
+}
+
+article.liked
+{
+	border: 1px solid #7851A9;
+}
+
+article.liked .action-bar
+{
+	background-color: #856BA8;
+	border-top: 1px solid #7851A9;
+}
+
+article .action-bar a,
+article .action-bar span
+{
+	color: #000000;
+	cursor: pointer;
+}
+
+article.unread .action-bar a,
+article.liked .action-bar a,
+article.unread .action-bar span,
+article.liked .action-bar span
+{
+	color: #FFFFFF;
+}
+
+.action-bar a,
+.action-bar span
+{
+	display: inline-block;
+	margin: 4px;
+}
+
+#overlay
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup
+{
+	position: fixed;
+	width: 300px;
+	left: 50%;
+	top: 80px;
+	margin-left: -150px;
+	z-index: 2;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+#unsubscribe
+{
+	width: 360px;
+	margin-left: -180px;
+}
+
+.popup .header
+{
+	width: 100%;
+	height: 33px;
+	background-color: #F1F1F1;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.popup .header span
+{
+	float: right;
+	width: 20px;
+	height: 20px;
+	padding: 0px 2px 3px;
+	margin: 4px 3px 0px;
+	font-size: 18px;
+}
+
+.popup .header h3
+{
+	margin: 0px;
+	padding: 5px 9px;
+}
+
+.popup form
+{
+	width: 100%;
+}
+
+.popup form input[type="submit"],
+.popup form button
+{
+	margin-left: 15px;
+}
+
+fieldset
+{
+	padding: 0px;
+	border: 0px none;
+}
+
+.popup fieldset
+{
+	margin: 0px 10px 10px;
+}
+
+.popup fieldset > input:not([type="checkbox"])
+{
+	width: 268px;
+	height: 25px;
+	margin-top: 10px;
+	padding-left: 8px;
+}
+
+.popup fieldset label
+{
+	display: inline-block;
+	margin-top: 10px;
+	padding-top: 9px;
+	font-size: 14px;
+}
+
+fieldset input[type="submit"],
+fieldset button
+{
+	float: right;
+	background-color: #428BCA;
+	color: #FFFFFF;
+	border: 1px solid #3374AC;
+	border-radius: 4px;
+}
+
+.popup fieldset input[type="submit"],
+.popup fieldset button
+{
+	margin-top: 15px;
+	width: 75px;
+	height: 30px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+fieldset input[type="submit"]:hover,
+fieldset button:hover
+{
+	background-color: #3374AC;
+}
+
+main
+{
+	position: fixed;
+	top: 50px;
+	left: 0px;
+	right: 0px;
+}
+
+#landing
+{
+	position: fixed;
+	top: 200px;
+	left: 40px;
+	right: 40px;
+	bottom: -46px;
+	padding-bottom: 11px;
+	border: 46px solid #000000;
+	border-top: 52px solid #000000;
+	border-radius: 30px;
+	background-color: #FFFFFF;
+	font-size: 15px;
+	transition: top 0.5s ease, left 0.5s ease, right 0.5s ease;
+}
+
+#landing > div
+{
+	position: relative;
+	height: 100%;
+	margin: 5px;
+	border: 1px solid #AAAAAA;
+	border-radius: 6px;
+	overflow-y: auto;
+}
+
+.fullscreen-absolute
+{
+	top: -2px !important;
+	left: -46px !important;
+	right: -46px !important;
+	transition: top 0.5s ease, left 0.5s ease, right 0.5s ease;
+}
+
+#banner
+{
+	margin-top: 30px;
+	font-size: 80px;
+	text-align: center;
+}
+
+.home-left,
+.home-right
+{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	width: 50%;
+	overflow-y: auto;
+}
+
+.home-left
+{
+	left: 0px;
+}
+
+.home-right
+{
+	right: 0px;
+	border-left: 1px solid #CCCCCC;
+}
+
+#widgets
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	padding: 10px 10px;
+}
+
+.full-widget
+{
+	width: 100%;
+	height: auto;
+}
+
+#change-email fieldset,
+#change-password fieldset
+{
+	margin: 10px 10px 20px 7px;
+}
+
+fieldset legend
+{
+	margin-bottom: 5px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#change-email input,
+#change-password input
+{
+	width: 97%;
+	margin-bottom: 5px;
+	padding-left: 6px;
+}
+
+#change-email button,
+#change-password button
+{
+	margin-top: 2px;
+	padding: 5px 10px;
+}
+
+#change-password
+{
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#settings-content
+{
+	width: 70%;
+}
+
+#account-content
+{
+	width: 30%;
+}
+
+.notice
+{
+	text-align: center;
+}
+
+#delete-account-button
+{
+	float: right;
+	margin: 10px 10px;
+	width: 140px;
+	border-radius: 5px;
+}
+
+.button-red
+{
+	background-color: #DF3E3E;
+	color: #FFFFFF;
+	border: 1px solid #CC0000;
+}
+
+.button-red:hover
+{
+	background-color: #CC0000;
+}
+
+#delete-account label
+{
+	padding-top: 11px;
+}
+
+/* Add for float: right; */
+.block
+{
+	display: block;
+}
+
+#settings-content fieldset legend
+{
+	margin-bottom: 10px;
+}
+
+#settings-content fieldset
+{
+	margin-bottom: 20px;
+}
+
+.settings-button
+{
+	float: right;
+	padding: 5px 10px;
+	margin-right: 10px !important;
+}
+
+#general-settings
+{
+	display: inline-block;
+	margin: 10px;
+	width: 50%;
+}
+
+#user-interface
+{
+	display: inline-block;
+	margin: 0px 10px;
+}
+
+fieldset select
+{
+	margin-left: 30px;
+}
+
+.input-error,
+.input-empty
+{
+	border: 2px solid #DF3E3E;
+	box-shadow: 0px 0px 5px #DF3E3E;
+}
+
+.form-error
+{
+	display: inline-block;
+	width: 100%;
+	margin-top: 5px;
+	font-size: 14px;
+	color: #DF3E3E;
+	text-align: center;
+}
+
+.form-error-new
+{
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 5px;
+	font-size: 14px;
+	color: #DF3E3E;
+	text-align: center;
+}
+
+#fullscreen
+{
+	padding: 0px 7px 1px 7px !important;
+	font-family: "ModernPictogramsNormal";
+	font-size: 26px;
+	content: "v";
+}
+
+#form-question
+{
+	display: block;
+	margin-top: 7px;
+	font-size: 17px;
+}
+
+.empty-li
+{
+	height: 1px !important;
+}
+
+.sortable-placeholder
+{
+	border: 1px dashed #CCCCCC;
+}
+
+.remove-article
+{
+	float: right;
+	margin: 0px;
+	margin-top: 4px;
+}
+
+#weather
+{
+    margin-bottom: 15px;
+}
+
+#refreshWeather
+{
+    display: inline-block;
+    float: right;
+    font-size: 14px;
+    padding: 3px 6px;
+}
+
+.weather-title
+{
+    display: block;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    margin-right: 10px;
+}
+
+.city
+{
+    display: block;
+    float: left;
+    margin-top: 1px;
+    font-size: 13px;
+    font-weight: normal;
+    border: none;
+}
+
+.temperature
+{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 4px;
+}
+
+.temperature-today
+{
+    margin-right: 50px;
+}
+
+.break
+{
+    display: block;
+    height: 25px;
+}
+
+.temperature-label
+{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 20px;
+    padding-top: 4px;
+}
+
+#manage-subscriptions
+{
+    margin-top: 3px;
+}
+
+#subscriptionsGV
+{
+    margin: 10px;
+}
+
+.edit-column
+{
+    padding: 0px 5px;
+}
+
+.button-margin
+{
+    margin-left: 10px;
+}
+
+.subscription-button
+{
+    display: inline-block;
+    float: none !important;
+    font-size: 14px;
+    margin: 10px 3px 3px 10px !important;
+    padding: 5px 7px;
+    cursor: pointer;
+}
+
+.table-checkbox
+{
+    padding-right: 5px;
+}
+
+.data-name
+{
+    width: 225px;
+    height: 22px;
+    padding-right: 10px;
+}
+
+.data-folder
+{
+    width: 155px;
+    padding-right: 10px;
+}
+
+.table-header
+{
+    font-size: 16px;
+    text-align: left;
+    padding-bottom: 5px;
+}

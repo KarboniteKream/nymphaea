@@ -1,0 +1,71 @@
+<div id="settings-content" class="home-left">
+	<div>
+		<div id="general-settings">
+			<div>
+				<fieldset>
+					<legend>Home page</legend>
+					<input id="featured-home" type="checkbox" checked />
+					<label for="featured-home">Show featured articles</label>
+					<br />
+					<input id="xkcd-time" type="checkbox" checked />
+					<label for="xkcd-time">Show XKCD #1190</label>
+				</fieldset>
+				<fieldset>
+					<legend>Appearance</legend>
+					<label for="theme">Theme</label>
+					<select id="theme">
+						<option value="Dark">Dark</option>
+						<option value="Light" selected="selected">Light</option>
+					</select>
+				</fieldset>
+			</div>
+		</div>
+		<div id="user-interface">
+			<div>
+				<fieldset>
+					<legend>Article order</legend>
+					<input id="order-normal" type="radio" checked="checked" />
+					<label for="order-normal">Normal (newer articles first)</label>
+					<br />
+					<input id="order-reverse" type="radio" />
+					<label for="order-reverse">Reverse (older articles first)</label>
+					<br />
+				</fieldset>
+				<fieldset>
+					<legend>Reading preferences</legend>
+					<input id="mark-read" type="checkbox" checked />
+					<label for="mark-read">Mark articles as read when scrolling</label>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+	<div>
+		<span class="button-primary block settings-button">Save</span>
+		<a id="manage-subscriptions" class="button-secondary settings-button" href="Subscriptions.aspx">Manage subscriptions</a>
+	</div>
+</div>
+<div id="account-content" class="home-right">
+	<form id="change-email">
+		<fieldset>
+			<legend>Change e-mail</legend>
+			<input type="email" placeholder="new e-mail" />
+			<br />
+			<input type="email" class="confirm-email" placeholder="confirm e-mail" />
+			<br />
+			<button type="submit">Change</button>
+		</fieldset>
+	</form>
+	<form id="change-password">
+		<fieldset>
+			<legend>Change password</legend>
+			<input type="password" placeholder="current password" />
+			<br />
+			<input type="password" placeholder="new password" />
+			<br />
+			<input type="password" class="confirm-password" placeholder="confirm password" />
+			<br />
+			<button type="submit">Change</button>
+		</fieldset>
+	</form>
+	<span id="delete-account-button" class="button-red block open-popup" target-popup="#delete-account">Delete my account</span>
+</div>

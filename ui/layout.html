@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="{{ @ENCODING }}" />
+		<title>nymphaea</title>
+		<link rel="icon" type="image/png" href="/images/favicon.png" />
+		<link rel="stylesheet" type="text/css" href="/css/main.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5sortable/0.3.1/html.sortable.js"></script>
+		<script type="text/javascript" src="/js/feed.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1><a href="/"><!--<span class="renge">蓮花</span> -->nymphaea</a><span class="version"> alpha</span></h1>
+			<nav>
+				<ul>
+					<li><a href="/home" class="active">Home</a></li>
+					<li><a href="/settings">Settings</a></li>
+					<li><a href="/help">Help</a></li>
+					<li><a href="/sign-out">Sign out</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div id="main">
+			<div id="sidebar">
+				<span id="new-subscription" class="button-primary block">New subscription</span>
+				<form id="add-subscription" action="/subscribe" method="POST">
+					<fieldset>
+						<input type="submit" tabindex="2" value="Add" />
+						<input type="url" name="url" placeholder="subscription URL" tabindex="1" />
+					</fieldset>
+				</form>
+				<div id="sidebar-content">
+					<div id="menu">
+						<ul>
+							<li><a id="home" href="/home">Home</a></li>
+							<li><a id="unread" href="/home/unread">Unread</a><span class="badge"> {{ @unread_count }}</span></li>
+							<li><a id="liked" href="/home/liked">Liked</a></li>
+							<li><a id="all" href="/home/all">All articles</a></li>
+						</ul>
+					</div>
+					<div id="subscriptions">
+						<ul class="connected sortable">
+							<include href="null_feeds.html" />
+						</ul>
+						<ul>
+							<include href="folder_feeds.html" />
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="content">
+				<div id="header" class="header">
+					<include href="{{ @header }}" />
+				</div>
+				<div id="reader">
+					<include href="{{ @content }}" />
+				</div>
+			</div>
+		</div>
+		<div id="overlay" onclick="hideOverlay()"></div>
+		<div id="unsubscribe" class="popup">
+			<div class="header">
+				<span class="button-secondary" onclick="hideOverlay()">×</span>
+				<h3>Unsubscribe</h3>
+			</div>
+			<form action="/unsubscribe" method="POST">
+				<fieldset>
+					<span id="form-question">Are you sure you want to unsubscribe from {{ @feedName }}?</span>
+					<input type="submit" value="Yes" />
+					<button type="button" class="button-secondary" onclick="hideOverlay()" tabindex="1">No</button>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>

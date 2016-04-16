@@ -1,0 +1,34 @@
+<repeat group="{{ @articles }}" value="{{ @article }}">
+	<article id="{{ @article.id }}" <check if="{{ @article.unread == 1 }}"><true>class="unread"</true><false><check if="{{ @article.liked == 1 }}">class="liked"</check></false></check></article>
+		<check if="{{ @article.date != null }}">
+			<div class="date">{{ strftime("%Y-%m-%d", strtotime(@article.date)) }}</div>
+		</check>
+		<h2><a href="{{ @article.url }}" target="_blank">{{ @article.title }}</a></h2>
+		<check if="{{ @article.author != null }}">
+			<div class="author">by <b>{{ @article.author }}</b></div>
+		</check>
+		<div class="content">
+			<p>{{ @article.content | raw }}</p>
+		</div>
+		<div class="action-bar">
+			<check if="{{ @article.unread == 1 }}">
+				<true>
+					<a>Like</a>
+					<a>Mark as read</a>
+				</true>
+				<false>
+					<check if="{{ @article.liked == 1 }}">
+						<true>
+							<a>Unlike</a>
+							<a>Mark as unread</a>
+						</true>
+						<false>
+							<a>Like</a>
+							<a>Mark as unread</a>
+						</false>
+					</check>
+				</false>
+			</check>
+		</div>
+	</article>
+</repeat>

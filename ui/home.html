@@ -1,0 +1,25 @@
+<div class="home-left">
+	<h2 class="notice">You have {{ @unread_count }} unread articles.</h2>
+	<div id="widgets">
+		<img src="http://imgs.xkcd.com/comics/time.png" class="full-widget" title="The end." alt="Current time is unknown." />
+	</div>
+</div>
+<div class="home-right">
+	<repeat group="{{ @featured }}" value="{{ @article }}">
+		<article>
+			<check if="{{ @article.date != null }}">
+				<div class="date">{{ strftime("%Y-%m-%d", strtotime(@article.date)) }}</div>
+			</check>
+			<h2><a href="{{ @article.url }}" target="_blank">{{ @article.title }}</a></h2>
+			<check if="{{ @article.author != null }}">
+				<div class="author">by <b>{{ @article.author }}</b></div>
+			</check>
+			<div class="content">
+				<p>{{ @article.content | raw }}</p>
+			</div>
+			<div class="action-bar">
+				<a>Like</a>
+			</div>
+		</article>
+	</repeat>
+</div>
