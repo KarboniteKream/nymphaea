@@ -14,9 +14,9 @@ class Feed
 		$url = $f3->get("POST")["url"];
 		$xml = simplexml_load_file($url);
 
+		$url = preg_replace("/^http:/i", "https:", $url);
 		$url = parse_url($url);
-		$url = $url["scheme"] . "://" . $url["host"];
-		$icon = file_get_contents("http://www.google.com/s2/favicons?domain=" . $url);
+		$icon = file_get_contents("https://www.google.com/s2/favicons?domain=" . $url["scheme"] . "://" . $url["host"]);
 
 		$name = $xml->channel->title;
 		$articles = isset($xml->item) ? $xml->item : $xml->channel->item;
@@ -32,7 +32,7 @@ class Feed
 		$user = $f3->get("SESSION.user");
 
 		foreach($articles as $temp) {
-			$dc = $temp->children("http://purl.org/dc/elements/1.1/");
+			$dc = $temp->children("https://purl.org/dc/elements/1.1/");
 
 			if(isset($temp->author) == true) {
 				$author = $temp->author;
@@ -55,10 +55,10 @@ class Feed
 			$article->reset();
 			$article->feed_id = $feed->_id;
 			$article->title = $temp->title;
-			$article->url = $temp->link;
+			$article->url = preg_replace("/^http:/i", "https:", $temp->link);
 			$article->author = $author;
 			$article->date = $date;
-			$article->content = $temp->description;
+			$article->content = preg_replace("/http:\/\//", "https://", $temp->description);
 			$article->save();
 
 			$unread->reset();
