@@ -2,9 +2,15 @@
 
 class Feed
 {
-	public static function subscribe($f3)
+	private $db = null;
+
+	public function __construct($f3)
 	{
-		$db = $f3->get("DB");
+		$this->db = $f3->get("DB");
+	}
+
+	public function subscribe($f3)
+	{
 		$url = $f3->get("POST")["url"];
 		$xml = simplexml_load_file($url);
 
@@ -15,13 +21,13 @@ class Feed
 		$name = $xml->channel->title;
 		$articles = isset($xml->item) ? $xml->item : $xml->channel->item;
 
-		$feed = new DB\SQL\Mapper($db, "feeds");
+		$feed = new DB\SQL\Mapper($this->db, "feeds");
 		$feed->name = $name;
 		$feed->icon = $icon;
 		$feed->save();
 
-		$article = new DB\SQL\Mapper($db, "articles");
-		$unread = new DB\SQL\Mapper($db, "unread");
+		$article = new DB\SQL\Mapper($this->db, "articles");
+		$unread = new DB\SQL\Mapper($this->db, "unread");
 
 		$user = $f3->get("SESSION.user");
 
@@ -61,17 +67,15 @@ class Feed
 			$unread->save();
 		}
 
-		$db->exec("INSERT INTO subscriptions (user_id, feed_id) VALUES (:user_id, :feed_id);", [":user_id" => $user["id"], ":feed_id" => $feed->_id]);
+		$this->db->exec("INSERT INTO subscriptions (user_id, feed_id) VALUES (:user_id, :feed_id);", [":user_id" => $user["id"], ":feed_id" => $feed->_id]);
 
 		$f3->reroute("@feed(@feed_id = " . $feed->_id . ")");
 	}
 
-	// FIXME
-	public static function unsubscribe($f3)
+	public function unsubscribe($f3)
 	{
-		$db = $f3->get("DB");
 		// FIXME: feed_id.
-		$db->exec("DELETE FROM feeds WHERE id = :id;", [":id" => $f3->get("SESSION.feed_id")]);
+		$this->db->exec("DELETE FROM feeds WHERE id = :id;", [":id" => $f3->get("SESSION.feed_id")]);
 		$f3->reroute("@home");
 	}
 }
