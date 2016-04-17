@@ -1,0 +1,25 @@
+<div id="subscriptions">
+	<ul class="connected sortable">
+		<repeat group="{{ @null_feeds }}" value="{{ @subscription }}">
+			<li>
+				<a <check if="{{ @feedID == @subscription.feed_id }}">class="active"</check> href="/home/{{ @subscription.feed_id }}" style="background-image: url(data:image/png;base64,{{ @subscription.icon }});">{{ @subscription.name }}</a><check if="{{ @subscription.unread > 0 }}"><span class="badge"> {{ @subscription.unread }}</span></check>
+			</li>
+		</repeat>
+	</ul>
+	<ul>
+		<repeat group="{{ @folders }}" value="{{ @folder }}">
+			<li class="folder">
+				<input id="{{ @folder.folder }}" type="checkbox" />
+				<label for="{{ @folder.folder }}">{{ @folder.folder }}</label>
+				<ul class="connected sortable">
+					<repeat group="{{ @folder.subscriptions }}" value="{{ @subscription }}">
+						<li>
+							<a <check if="{{ @feedID == @subscription.feed_id }}">class="active"</check> href="/home/{{ @subscription.feed_id }}" style="background-image: url(data:image/png;base64,{{ @subscription.icon }});">{{ @subscription.name }}</a><check if="{{ @subscription.unread > 0 }}"><span class="badge"> {{ @subscription.unread }}</span></check>
+						</li>
+					</repeat>
+					<li class="empty-li"></li>
+				</ul>
+			</li>
+		</repeat>
+	</ul>
+</div>
